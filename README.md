@@ -1,4 +1,4 @@
-# Logger Library with Request UUID
+# Logger Library with Request Sequence
 
 ## Overview
 
