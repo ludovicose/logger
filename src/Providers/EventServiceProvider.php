@@ -23,7 +23,13 @@ final class EventServiceProvider extends ServiceProvider
         'Illuminate\Http\Client\Events\ConnectionFailed' => [
             LogConnectionFailedListener::class,
         ],
-        'eloquent.*'                                     => [
+        'eloquent.created'                               => [
+            LogEloquentEventListener::class
+        ],
+        'eloquent.updated'                               => [
+            LogEloquentEventListener::class
+        ],
+        'eloquent.deleted'                               => [
             LogEloquentEventListener::class
         ],
         'Illuminate\Database\Events\QueryExecuted'       => [
