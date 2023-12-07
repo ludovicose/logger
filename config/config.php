@@ -8,7 +8,7 @@ return [
 
     'enable_http_log' => true,
 
-    'enable_eloquent_log' => true,
+    'enable_eloquent_log' => false,
 
-    'enable_query_log' => true,
+    'enable_query_log' => false,
 ];
