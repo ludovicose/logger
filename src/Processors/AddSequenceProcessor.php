@@ -2,15 +2,16 @@
 
 namespace Ludovicose\Logger\Processors;
 
+use Monolog\LogRecord;
 use Monolog\Processor\ProcessorInterface;
 
 class AddSequenceProcessor implements ProcessorInterface
 {
     private $sequence;
 
-    public function __invoke(array $record)
+    public function __invoke(LogRecord $record):LogRecord
     {
-        $record['extra'] = array_merge(['sequence' => $this->getSequence()] + $record['extra']);
+        $record->extra =  array_merge(['sequence' => $this->getSequence()] + $record->extra);
 
         return $record;
     }
