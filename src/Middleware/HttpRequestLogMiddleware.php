@@ -17,20 +17,20 @@ class HttpRequestLogMiddleware
         $startTime = microtime(true);
 
         Log::info("WEB Request: $id {$request->url()}", [
-            'url'       => $request->url(),
-            'method'    => $request->method(),
-            'headers'   => $request->headers->all(),
-            'body'      => $request->all(),
-            'ip'        => $request->ip(),
-            'startTime' => $startTime,
+            'url'          => $request->url(),
+            'method'       => $request->method(),
+            'headers'      => $request->headers->all(),
+            'full_message' => $request->all(),
+            'ip'           => $request->ip(),
+            'startTime'    => $startTime,
         ]);
 
         $response = $next($request);
 
         Log::info("WEB Response: $id {$request->url()}", [
-            'status_code' => $response->getStatusCode(),
-            'body'        => $response->getContent(),
-            'endTime'     => round(microtime(true) - $startTime, 2)
+            'status_code'  => $response->getStatusCode(),
+            'full_message' => $response->getContent(),
+            'endTime'      => round(microtime(true) - $startTime, 2)
         ]);
 
         return $response;

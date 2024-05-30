@@ -21,9 +21,9 @@ class LogConnectionFailedListener
         $id = app()->make('sequence-uuid');
 
         Log::info("Connection failed: $id {$event->request->url()}", [
-            'url'    => $event->request->url(),
-            'method' => $event->request->method(),
-            'body'   => $event->request->body(),
+            'url'          => $event->request->url(),
+            'method'       => $event->request->method(),
+            'full_message' => $event->request->body(),
         ]);
     }
 }

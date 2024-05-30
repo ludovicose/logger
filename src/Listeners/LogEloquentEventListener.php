@@ -25,10 +25,10 @@ class LogEloquentEventListener
 
         foreach ($models as $model) {
             Log::info("Eloquent: $id", [
-                'id'    => $model->id,
-                'body'  => $model->toJson(),
-                'event' => $event,
-                'model' => $model::class
+                'id'           => $model->id,
+                'full_message' => $model->toJson(),
+                'event'        => $event,
+                'model'        => $model::class
             ]);
         }
     }
