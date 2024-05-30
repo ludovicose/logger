@@ -21,9 +21,9 @@ class LogResponseReceivedListener
         $id = app()->make('sequence-uuid');
 
         Log::info("HTTP Client Response: $id {$event->request->url()}", [
-            'status_code' => $event->response->status(),
-            'reason'      => $event->response->reason(),
-            'body'        => $event->response->body(),
+            'status_code'  => $event->response->status(),
+            'reason'       => $event->response->reason(),
+            'full_message' => $event->response->body(),
         ]);
     }
 }

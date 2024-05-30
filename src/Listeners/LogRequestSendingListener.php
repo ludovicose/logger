@@ -23,9 +23,9 @@ class LogRequestSendingListener
         $id = app()->make('sequence-uuid');
 
         Log::info("HTTP Client Request: $id {$event->request->url()}", [
-            'url'    => $event->request->url(),
-            'method' => $event->request->method(),
-            'body'   => $event->request->body(),
+            'url'          => $event->request->url(),
+            'method'       => $event->request->method(),
+            'full_message' => $event->request->body(),
         ]);
     }
 }
